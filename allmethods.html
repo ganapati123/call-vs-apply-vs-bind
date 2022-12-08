@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call/apply/bind methods</title>
+</head>
+<body>
+    <script>
+        var employee = {
+                  name:"abc",
+                  salary:50000,
+                  getSalary:function(a,b){
+                    console.log(this.salary)
+                    console.log(a,b)
+                  },
+                  greet:function(wish){
+                    console.log(this.name,wish)
+                  }
+        }
+        employee1={
+            salary:60000
+        }
+        employee2={
+            salary:70000
+        }
+        employee3={
+            name:"sagar",
+            salary:80000
+        }
+
+        employee.getSalary(50,60)  //50000 
+                                    
+        employee.getSalary.call(employee1,55,66)  // 60000
+
+        employee.getSalary.apply(employee2,[77,88]) //70000
+
+       let f1= employee.getSalary.bind(employee3) 
+       f1(88,99)
+       let f2= employee.greet.bind(employee3) 
+       f2("good Morning")
+    </script>
+</body>
+</html>

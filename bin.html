@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind Method</title>
+</head>
+<body>
+    <script>
+        var salary = 50000
+        function getSalary(a,b){
+            console.log(this.salary)
+            console.log(a,b)
+        }
+        Employee={
+              salary:100000
+        }
+        // let x =  getSalary.bind(Employee)
+        // x(80,90)
+       
+        let x =  getSalary.bind(Employee,88,99)
+        x()
+    </script>
+</body>
+</html>
